@@ -1,7 +1,7 @@
 module Hogwarts
   class Server < Sinatra::Base
 
-    db = PG.connect dbname: "hogwarts_crud", host: "localhost"
+    db = PG.connect dbname: "hogwarts_crud", host: ENV[hogwarts_db]
 
     get '/' do
       @houses = db.exec "SELECT * FROM HOUSES"
