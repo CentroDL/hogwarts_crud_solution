@@ -6,7 +6,7 @@
 
 <form action="/students/new" method="post">
 
-<!--   <h2>Enroll a new student</h2>
+  <h2>Enroll a new student</h2>
 
   <label for="fname">First Name:</label>
   <input name="fname" type="text" placeholder="First Name"><br>
@@ -19,10 +19,10 @@
 
   <label for="house_id">House:</label>
   <select name="house_id">
-    <%# @houses.each do |house| %>
-      <option value="<%#= house["id"] %>"><%#= house["name"]%></option>
-    <%# end %>
+    <% @houses.each do |house| %>
+      <option value="<%= house["id"] %>"><%= house["name"]%></option>
+    <% end %>
   </select><br>
 
-  <input type="submit"> -->
+  <input type="submit">
 </form>

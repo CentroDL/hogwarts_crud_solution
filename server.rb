@@ -12,7 +12,7 @@ module Hogwarts
     end
 
     get '/' do
-      # @houses = db.exec "SELECT * FROM HOUSES"
+      @houses = db.exec "SELECT * FROM HOUSES"
       erb :index
     end
 
