@@ -1,7 +1,13 @@
 module Hogwarts
   class Server < Sinatra::Base
 
-    db = PG.connect dbname: "hogwarts_crud", host: ENV["DATABASE_URL"]
+    configure :development do
+      db = PG.connect dbname: "hogwarts_crud", host: ENV["DATABASE_URL"]
+    end
+
+    configure :production do
+      db = PG.connect dbname: "hogwarts_crud", host: env["DATABASE_URL"]
+    end
 
     get '/' do
       @houses = db.exec "SELECT * FROM HOUSES"
